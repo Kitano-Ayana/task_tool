@@ -19,6 +19,6 @@ class TaskController extends Controller
     {
         $task = $this->createTaskAction->execute($request->all());
 
-        return response()->json($task, 201);
+        return response()->json(['message' => 'Task created successfully', 'task' => $task], 201);
     }
 }
