@@ -24,4 +24,11 @@ class TaskController extends Controller
             'task' => $task
         ], 201);
     }
+
+    public function update(UpdateTaskRequest $request, $id)
+    {
+        $task = $this->editTaskAction->execute($id, $request->all());
+
+        return response()->json(['message' => 'Task updated successfully', 'task' => $task], 200);
+    }
 }

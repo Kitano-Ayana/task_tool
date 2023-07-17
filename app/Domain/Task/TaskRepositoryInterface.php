@@ -5,5 +5,6 @@ namespace App\Domain\Task;
 interface TaskRepositoryInterface
 {
     public function save(Task $task): void;
-    // other methods...
+    public function findById(int $id): Task;
+    
 }
