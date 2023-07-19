@@ -15,5 +15,20 @@ class Task
         $this->deadline = $deadline;
     }
 
-    // getter methods ...
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function getDeadline()
+    {
+        return $this->deadline;
+    }
+
 }

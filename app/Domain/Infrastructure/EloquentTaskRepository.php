@@ -8,6 +8,13 @@ use App\Models\Task;
 
 class EloquentTaskRepository implements TaskRepositoryInterface
 {
+    private $eloquentTask;
+
+    public function __construct(Task $eloquentTask)
+    {
+        $this->eloquentTask = $eloquentTask;
+    }
+
     public function save(TaskEntity $taskEntity): void
     {
         $task = new Task();
@@ -17,5 +24,9 @@ class EloquentTaskRepository implements TaskRepositoryInterface
         $task->save();
     }
 
-    // other methods...
+    public function findById(int $id): Task
+    {
+        $eloquentTask = $this->eloquentTask->find($id);
+        return Task::fromEloquent($eloquentTask);
+    }
 }
